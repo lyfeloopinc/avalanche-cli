@@ -14,7 +14,6 @@ import (
 	"github.com/ava-labs/subnet-evm/core/types"
 	"github.com/ava-labs/subnet-evm/ethclient"
 	"github.com/ava-labs/subnet-evm/rpc"
-	subnetEvmUtils "github.com/ava-labs/subnet-evm/tests/utils"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
 )
@@ -435,7 +434,7 @@ func IssueTxsToActivateProposerVMFork(
 	for i := 0; i < repeatsOnFailure; i++ {
 		ctx, cancel := utils.GetAPILargeContext()
 		defer cancel()
-		err = subnetEvmUtils.IssueTxsToActivateProposerVMFork(ctx, chainID, privKey, client)
+		err = SubnetEVMIssueTxsToActivateProposerVMFork(ctx, chainID, privKey, client)
 		if err == nil {
 			break
 		}
