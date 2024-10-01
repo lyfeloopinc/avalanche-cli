@@ -127,6 +127,11 @@ func msg(_ *cobra.Command, args []string) error {
 		}
 	}
 
+	err = evm.SetupProposerVM(sourceRPCEndpoint, privateKey)
+	if err != nil {
+		return err
+	}
+
 	sourceBlockchainID, err := contract.GetBlockchainID(app, network, sourceChainSpec)
 	if err != nil {
 		return err
